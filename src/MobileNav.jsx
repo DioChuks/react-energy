@@ -12,7 +12,6 @@ function MobileNav() {
 
   const toggleNavigation = () => {
     setIsNavOpen(!isNavOpen);
-    console.log(isNavOpen);
   };
 
   return (

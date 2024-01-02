@@ -21,8 +21,8 @@ function Third() {
               renewable electricity generation.
             </p>
             <div className="third-section-cards">
-              <Card image="https://quaintenergy.com/maduhih/uploads/2023/11/quaintenergy-1120.jpg" title="EV Charging Stations" />
-              <Card image="https://quaintenergy.com/maduhih/uploads/2023/11/023f-quainddt-scaled.jpg" title="Wind Energy" />
+              <Card image="https://bg-so-1.zippyimage.com/2024/01/01/d884f75543b72d0056d9ca13019cedd2.jpg" title="EV Charging Stations" />
+              <Card image="https://bg-so-1.zippyimage.com/2024/01/01/38fb79dbe572a6696c393a6860847696.jpg" title="Wind Energy" />
               <Card image="03.jpg" title="Lorem Ipsum"/>
             </div>
           </div>
