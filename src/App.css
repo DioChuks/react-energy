@@ -1,4 +1,4 @@
-@import 'Card.css';
+@import "Card.css";
 /* first section */
 
 .first-section {
@@ -492,7 +492,10 @@
   transition: color 300ms;
 }
 
-.third-section-container .third-section-box .third-section-body .third-section-cards {
+.third-section-container
+  .third-section-box
+  .third-section-body
+  .third-section-cards {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -577,13 +580,200 @@
 
 /* end of fourth section styles */
 
+/* fifth section styles */
+
+.fifth-section {
+  height: auto;
+  background: #000;
+  padding: 10px;
+}
+
+.fifth-section .fifth-section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  text-align: center;
+  color: aliceblue;
+}
+
+.fifth-section-container .fifth-section-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.fifth-section-container .fifth-section-box .fifth-section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+  gap: 20px;
+  width: 50%;
+}
+
+.fifth-section-container
+  .fifth-section-box
+  .fifth-section-heading
+  .fifth-section-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.fifth-section-container
+  .fifth-section-box
+  .fifth-section-heading
+  .fifth-section-subtitle {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.fifth-section-container .fifth-section-box .fifth-section-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fifth-section-container
+  .fifth-section-box
+  .fifth-section-body
+  .fifth-section-text {
+  font-size: clamp(1.2rem, 1vw, 2rem);
+  font-weight: 500;
+  color: white;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 100px;
+  margin: 10px;
+  padding: 10px;
+  transition: color 300ms;
+}
+
+.fifth-section-container
+  .fifth-section-box
+  .fifth-section-body
+  .fifth-section-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 600px;
+  height: 600px;
+  margin-top: -20%;
+}
+
+.fifth-section-cards .img-box {
+  background-color: aliceblue;
+  padding: 10px;
+  width: inherit;
+  height: inherit;
+}
+
+.fifth-section-cards .img-box img {
+  width: 98%;
+  height: 98%;
+}
+
+/* end of fifth section styles */
+
+/* footer section styles */
+
+.footer-section {
+  height: auto;
+  padding: 10px;
+}
+
+.footer-section .footer-section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  text-align: center;
+}
+
+.footer-section-container .footer-section-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section-container .footer-section-box .footer-section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+  gap: 20px;
+  width: 50%;
+}
+
+.footer-section-container
+  .footer-section-box
+  .footer-section-heading
+  .footer-section-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.footer-section-container
+  .footer-section-box
+  .footer-section-heading
+  .footer-section-subtitle {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: left;
+  text-transform: capitalize;
+  color: darkgreen;
+}
+
+.footer-section-container .footer-section-box .footer-section-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-section-box .footer-section-body hr {
+  border: 1px solid #000;
+  width: 70%;
+}
+
+.footer-section-container
+  .footer-section-box
+  .footer-section-body
+  .footer-section-form {
+  font-size: clamp(1.2rem, 1vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 10px;
+  padding: 10px;
+  transition: color 300ms;
+}
 
 
+.footer-section-form .news-input .input{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: transparent;
+  border: 2px solid darkgreen;
+}
 
+.footer-section-form .news-input .btn-news{
+  background-color: darkgreen;
+  color: aliceblue;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 
+.btn-news:hover {
+  color: white;
+  background-color: darkolivegreen;
+  cursor: pointer;
+}
 
+.footer-section-body span a {
+  color: #000;
+}
 
-
+/* end of footer section styles */
 
 
 
@@ -650,7 +840,6 @@
     margin: 0px;
   }
 
-
   /* third section responsive styles */
 
   .third-section {
@@ -693,7 +882,10 @@
     border-top-right-radius: 50px;
   }
 
-  .third-section-container .third-section-box .third-section-body .third-section-cards {
+  .third-section-container
+    .third-section-box
+    .third-section-body
+    .third-section-cards {
     gap: 10px;
     justify-content: space-around;
   }
@@ -703,7 +895,7 @@
     .fourth-section-box
     .fourth-section-heading
     .fourth-section-title {
-      margin-top: 25%;
+    margin-top: 25%;
     font-size: 3rem;
     text-align: left;
     width: 100%;
@@ -741,6 +933,74 @@
   }
 
   /* end of fourth section responsive style */
+
+  /* fifth section responsive style */
+  .fifth-section .fifth-section-container {
+    flex-direction: column;
+  }
+  
+  .fifth-section-container .fifth-section-box {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .fifth-section-container 
+    .fifth-section-box 
+    .fifth-section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 95%;
+  }
+  
+  .fifth-section-container
+    .fifth-section-box
+    .fifth-section-heading
+    .fifth-section-title {
+    font-size: 1.3rem;
+  }
+  
+  .fifth-section-container
+    .fifth-section-box
+    .fifth-section-heading
+    .fifth-section-subtitle {
+    font-size: 2rem;
+  }
+  
+  .fifth-section-container .fifth-section-box .fifth-section-body {
+    flex-direction: column;
+  }
+  
+  .fifth-section-container
+    .fifth-section-box
+    .fifth-section-body
+    .fifth-section-text {
+    font-weight: 400;
+  }
+  
+  .fifth-section-container
+    .fifth-section-box
+    .fifth-section-body
+    .fifth-section-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    height: 300px;
+    margin-top: 0;
+  }
+  
+  .fifth-section-cards .img-box {
+   padding: 5px;
+
+  }
+  
+  .fifth-section-cards .img-box img {
+    width: 98%;
+    height: 98%;
+  }
+  /* end of fifth section responsive styles */
 }
 
 @media screen and (min-width: 768px) and (max-width: 946px) {

@@ -6,7 +6,7 @@ body {
   padding: 0;
 }
 @media (prefers-reduced-motion: no-preference) {
-  section > div > div > div > h2,
+  section > div > div > div > h2,h3,
   div > p {
     animation: fade-in linear forwards;
     animation-timeline: view();
