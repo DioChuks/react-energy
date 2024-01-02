@@ -1001,6 +1001,32 @@
     height: 98%;
   }
   /* end of fifth section responsive styles */
+
+  /* footer section responsive styles */
+  
+  .footer-section-container .footer-section-box .footer-section-heading {
+    width: 95%;
+  }
+  
+  .footer-section-container
+    .footer-section-box
+    .footer-section-heading
+    .footer-section-subtitle {
+    font-size: 1.7rem;
+  }
+  
+  .footer-section-container .footer-section-box .footer-section-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .footer-section-box .footer-section-body hr {
+    border: 1px solid #000;
+    width: 90%;
+  }
+
+  /* end of footer section responsive styles */
 }
 
 @media screen and (min-width: 768px) and (max-width: 946px) {
