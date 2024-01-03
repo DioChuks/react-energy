@@ -2,7 +2,7 @@ import "animate.css";
 
 function Fifth() {
   return (
-    <section className="fifth-section">
+    <section className="fifth-section" id="investor-relations">
       <div className="fifth-section-container">
         <div className="fifth-section-box">
           <div className="fifth-section-heading animate__animated animate__backInUp">

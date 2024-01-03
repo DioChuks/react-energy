@@ -5,7 +5,7 @@ function Footer() {
       <div className="footer-section-container">
         <div className="footer-section-box">
           <div className="footer-section-heading animate__animated animate__backInUp">
-            <h2 className="footer-section-title">Quart Energy</h2>
+            <h2 className="footer-section-title">Ecohavest</h2>
             <h3 className="footer-section-subtitle">
               Empowering a Sustainable Tomorrow: Clean Energy Solutions for a
               Greener World
@@ -20,7 +20,7 @@ function Footer() {
               </div>
             </form>
             <hr />
-            <h5>Copyright &#8167; 2023 Quart Energy. All rights reserved.</h5>
+            <h5>Copyright &#8167; 2019 - {new Date().getFullYear()} Ecohavest. All rights reserved.</h5>
             <span>
               <a href="#">Terms</a> | <a href="#">Services</a> |{" "}
               <a href="#">Privacy</a>

@@ -10,7 +10,7 @@ function First() {
         className="first-section-container"
       >
         <header className="first-section-header">
-          <h3 className="logo animate__animated animate__bounceInUp">Quart Energy</h3>
+          <h3 className="logo animate__animated animate__bounceInUp">Ecohavest</h3>
           {/* mobile view */}
           <div className="fs-nav-mobile" id="fsNavMobile">
             <MobileNav />

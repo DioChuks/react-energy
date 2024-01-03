@@ -4,7 +4,7 @@ import Card from "./Card";
 
 function Third() {
   return (
-    <section className="third-section">
+    <section className="third-section" id="inventory">
       <div className="third-section-container">
         <div className="third-section-box">
           <div className="third-section-heading animate__animated animate__backInUp">
@@ -12,10 +12,10 @@ function Third() {
           </div>
           <div className="third-section-body animate__animated animate__bounceInLeft">
             <p className="third-section-text">
-              At the forefront of the green energy revolution stands Quart
+              At the forefront of the green energy revolution stands Ecohavest
               Energy, a company deeply committed to sustainable power
               generation. Within our comprehensive portfolio, wind energy
-              occupies a prominent position. Quart Energy expertise in wind
+              occupies a prominent position. Ecohavest expertise in wind
               power reflects not only our dedication to environmental
               responsibility but also our innovative approach to clean and
               renewable electricity generation.
