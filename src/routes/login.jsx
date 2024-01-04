@@ -6,7 +6,7 @@ function Login() {
       <div className="login-section-container animate__animated animate__backInDown">
         <div className="login-section-box">
           <div className="login-section-heading">
-            <h2 className="login-section-title">Login</h2>
+            <a href='/' className="login-section-title"><img src="1704367523369xp3vn4hz-removebg-preview.png" alt="logo" className="logo animate__animated animate__bounceInUp" /></a>
             <p className="login-section-text">Sign in to your account.</p>
           </div>
           <div className="login-section-body">

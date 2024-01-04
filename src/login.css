@@ -31,6 +31,29 @@
     color: aliceblue;
 }
 
+.login-section-heading .login-section-title {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 300ms;
+    width: 150px;
+    height: 150px;
+}
+
+.login-section-title .logo {
+    width: inherit;
+    height: inherit;
+}
+
+.login-section-title:hover {
+    color: aliceblue;
+}
+
+.login-section-heading .login-section-text {
+    margin-top: -20px;
+}
+
 .login-section-body {
     width: 100%;
 }
@@ -111,7 +134,7 @@
     place-items: center;
     text-decoration: none;
     text-align: center;
-    color: white;
+    color: #333;
     margin: 0 10px;
     padding: 5px;
     transition: all 300ms;
@@ -169,8 +192,27 @@
     color: aliceblue;
 }
 
+.signup-section-heading .signup-section-title {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 300ms;
+    width: 100px;
+    height: 100px;
+}
+
+.signup-section-title .logo {
+    width: inherit;
+    height: inherit;
+}
+
 .signup-section-body {
     width: 100%;
+}
+
+.signup-section-heading .signup-section-text {
+    margin-top: -20px;
 }
 
 .signup-section-body .signup-section-form {
@@ -280,6 +322,11 @@
         width: 300px;
         margin: 0 20px;
     }
+
+    .login-section-heading .login-section-title {
+        width: 80px;
+        height: 80px;
+    } 
     
     .login-section-body .login-section-form .login-section-input {
         display: flex;
@@ -299,6 +346,10 @@
         font-size: 13px;
     }
 
+    .login-section-footer .social-media {
+        color: white;
+    }
+
     /* signup responsive styles */
     .signup-section {
         height: 100vh;
@@ -312,6 +363,11 @@
 
     .signup-section-container .signup-section-box {
         height: 80%;
+    }
+
+    .signup-section-heading .signup-section-title {
+        width: 80px;
+        height: 80px;
     }
 
     .signup-section-body .signup-section-form {

@@ -55,6 +55,7 @@
   margin-top: -10px;
   margin-left: -10px;
   width: 100%;
+  height: 80px;
   background: rgba(0, 0, 0, 0.3);
   z-index: 99;
 }
@@ -90,6 +91,7 @@
   height: 50px;
   width: 50px;
   position: relative;
+  margin-right: 10px;
 }
 
 .fs-m-btn span {
@@ -338,6 +340,7 @@
 .industrium-heading .industrium-heading-content span {
   font-size: 4rem;
   color: white;
+  font-weight: 700;
 }
 
 .industrium-content-wrapper-2 {
@@ -563,8 +566,7 @@
 .fourth-section-container
   .fourth-section-box
   .fourth-section-body
-  .fourth-section-text,
-.fourth-section-text2 {
+  .fourth-section-text {
   font-size: clamp(1.2rem, 1vw, 2rem);
   font-weight: 500;
   color: white;
@@ -572,7 +574,7 @@
   margin: 10px;
   padding: 10px;
   transition: color 300ms;
-  width: 50%;
+  width: 80%;
 }
 
 /* end of fourth section styles */
@@ -788,9 +790,15 @@
   .first-section .fs-nav {
     display: none;
   }
+  .first-section .first-section-container .first-section-header{
+    margin-left: -20px;
+    height: 60px;
+  }
   .first-section .first-section-container .first-section-header .logo {
-    font-size: 13px;
-    width: 24%;
+    width: 50%;
+    height: 90px;
+    margin-top: -20px;
+    margin-left: -20px;
   }
   .first-section-container .first-section-content {
     height: 90%;

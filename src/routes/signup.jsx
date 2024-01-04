@@ -20,7 +20,7 @@ function Signup() {
       <div className="signup-section-container animate__animated animate__backInDown">
         <div className="signup-section-box">
           <div className="signup-section-heading">
-            <h2 className="signup-section-title">Sign up</h2>
+          <a href='/' className="signup-section-title"><img src="1704367523369xp3vn4hz-removebg-preview.png" alt="logo" className="logo animate__animated animate__bounceInUp" /></a>
             <p className="signup-section-text">
               Get started with a new account.
             </p>
