@@ -13,7 +13,7 @@ function Second() {
               In the realm of sustainable energy, a profound transformation is
               underway. With a profound commitment to environmental stewardship,
               we are harnessing the power of cutting-edge technology to amplify
-              our impact. Our mission revolves around elevating green energy to
+              our impact. Our mission revolves around elevating renewable energy to
               unprecedented heights.
             </p>
           </div>

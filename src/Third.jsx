@@ -14,16 +14,16 @@ function Third() {
             <p className="third-section-text">
               At the forefront of the green energy revolution stands Ecohavest
               Energy, a company deeply committed to sustainable power
-              generation. Within our comprehensive portfolio, wind energy
-              occupies a prominent position. Ecohavest expertise in wind
+              generation. Within our comprehensive portfolio, Solar energy
+              occupies a prominent position. Ecohavest expertise in solar
               power reflects not only our dedication to environmental
               responsibility but also our innovative approach to clean and
               renewable electricity generation.
             </p>
             <div className="third-section-cards">
-              <Card image="https://bg-so-1.zippyimage.com/2024/01/01/d884f75543b72d0056d9ca13019cedd2.jpg" title="EV Charging Stations" />
-              <Card image="https://bg-so-1.zippyimage.com/2024/01/01/38fb79dbe572a6696c393a6860847696.jpg" title="Wind Energy" />
-              <Card image="03.jpg" title="Lorem Ipsum"/>
+              <Card image="https://bg-so-1.zippyimage.com/2024/01/03/90960400a057911cb2d768767260dfc4.jpg" title="Solar Panels" />
+              <Card image="https://bg-so-1.zippyimage.com/2024/01/03/ba7d070de3650323a7716fb10fca5bca.jpg" title="Solar Roofing Tiles" />
+              <Card image="https://bg-so-1.zippyimage.com/2024/01/03/1efa602d7a0b5d23d20500e2aca3bd5a.jpg" title="Solar Cropping" />
             </div>
           </div>
         </div>

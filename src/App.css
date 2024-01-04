@@ -322,7 +322,7 @@
 }
 
 .first-section-content .slide-content-column .industrium-content-wrapper-1 {
-  width: 50%;
+  width: 80%;
 }
 
 .industrium-content-wrapper-1 .industrium-heading {
@@ -336,7 +336,7 @@
 }
 
 .industrium-heading .industrium-heading-content span {
-  font-size: 5rem;
+  font-size: 4rem;
   color: white;
 }
 
@@ -508,7 +508,7 @@
 
 .fourth-section {
   height: 100vh;
-  background-image: url("https://bg-so-1.zippyimage.com/2024/01/01/c3b4ec04581d79af04e8d0af1e545d63.jpg");
+  background-image: url("https://bg-so-1.zippyimage.com/2024/01/03/b3aca1c17c7fac61b6bb35352f7f6a93.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -573,9 +573,6 @@
   padding: 10px;
   transition: color 300ms;
   width: 50%;
-  background: -webkit-linear-gradient(white, yellowgreen, rgb(250, 250, 250));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 /* end of fourth section styles */
@@ -800,11 +797,11 @@
   }
 
   .first-section-content .slide-content-column .industrium-content-wrapper-1 {
-    width: 100%;
+    width: 95%;
   }
 
   .industrium-content-wrapper-1 .industrium-heading {
-    width: 80%;
+    width: 90%;
     margin-top: 35%;
   }
 
@@ -813,8 +810,9 @@
   }
 
   .industrium-heading .industrium-heading-content span {
-    font-size: 3rem;
+    font-size: 1.7rem;
     color: #333;
+    font-weight: 600;
   }
 
   .industrium-content-wrapper-2 {
@@ -923,10 +921,6 @@
     font-weight: 400;
     text-align: center;
     width: 100%;
-    background: white;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     color: #000;
     margin: 0px;
     font-size: 16px;

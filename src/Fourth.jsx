@@ -15,9 +15,11 @@ function Fourth() {
             <p className="fourth-section-text">
               A fundamental purpose of Ecohavest’s existence is to drive the
               energy transition forward and move toward a more sustainable
-              future. Ecohavest’s impact platform presents the opportunity
-              to make a statement through socially responsible investments that
-              make a difference in our world.
+              future. Ecohavest is deeply committed to advancing solar power as
+              a cornerstone of a sustainable future. Our prowess in solar energy
+              extends to the development and implementation of cutting-edge
+              solar technology, transforming the way we generate and harness
+              clean electricity.
             </p>
           </div>
         </div>

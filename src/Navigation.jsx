@@ -24,7 +24,7 @@ function Navigation() {
           </ul>
 
           <div className="account-link">
-            <a href="" className="fs-nav-account">
+            <a href="/login" className="fs-nav-account">
                 <AccountIcon /> {" "}
             </a>
           </div>

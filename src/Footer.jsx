@@ -22,7 +22,7 @@ function Footer() {
             <hr />
             <h5>Copyright &#8167; 2019 - {new Date().getFullYear()} Ecohavest. All rights reserved.</h5>
             <span>
-              <a href="#">Terms</a> | <a href="#">Services</a> |{" "}
+              <a href="#">Terms</a> | <a href="#services">Services</a> |{" "}
               <a href="#">Privacy</a>
             </span>
           </div>

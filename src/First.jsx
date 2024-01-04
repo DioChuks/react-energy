@@ -6,11 +6,11 @@ import Button from "./Button";
 function First() {
   return (
     <section className="first-section">
-      <div
-        className="first-section-container"
-      >
+      <div className="first-section-container">
         <header className="first-section-header">
-          <h3 className="logo animate__animated animate__bounceInUp">Ecohavest</h3>
+          <h3 className="logo animate__animated animate__bounceInUp">
+            Ecohavest
+          </h3>
           {/* mobile view */}
           <div className="fs-nav-mobile" id="fsNavMobile">
             <MobileNav />
@@ -24,17 +24,18 @@ function First() {
             <div className="industrium-content-wrapper-1">
               <div className="industrium-heading content-slider-item-heading animate__animated animate__backInUp">
                 <span className="industrium-heading-content">
-                  <span>Future Solutions</span> <br /> For Smart Electric
-                  Vehicle Charging!
+                  <span>UNVEIL THE FUTURE OF SOLAR ENERGY</span>
                 </span>
               </div>
             </div>
             <div className="industrium-content-wrapper-2">
               <div className="content-slider-item-text animate__animated animate__lightSpeedInRight">
                 <p>
-                  Our residential, commercial, and fast charging stations are
-                  widely compatible, built on open standards, and designed to be
-                  accessible for everyone.
+                  We are dedicated to the design, installation, and integration
+                  of <br />
+                  cutting-edge solar panels and energy solutions. Our goal is to
+                  make every ray of sunshine count, powering your life
+                  sustainably, efficiently, and economically.&nbsp;
                 </p>
               </div>
             </div>
