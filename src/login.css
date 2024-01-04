@@ -298,4 +298,49 @@
     .login-section-body .login-section-link {
         font-size: 13px;
     }
+
+    /* signup responsive styles */
+    .signup-section {
+        height: 100vh;
+        display: flex;
+    }
+    
+    .signup-section .signup-section-container {
+        width: 300px;
+        margin: 0 10px;
+    }
+
+    .signup-section-container .signup-section-box {
+        height: 80%;
+    }
+
+    .signup-section-body .signup-section-form {
+        margin-bottom: 2px;
+    }
+    
+    .signup-section-body .signup-section-form .signup-section-input {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .signup-section-input label {
+        font-size: 14px;
+    }
+
+    .signup-section-input input {
+        font-size: 14px;
+    }
+    
+    .signup-section-body .signup-section-form .signup-section-btn {
+        width: 30%;
+        height: 30px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    .signup-section-body .signup-section-link {
+        font-size: 12px;
+    }
 }

@@ -1,6 +1,20 @@
 import "animate.css";
 
 function Signup() {
+  const handleSignup = (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+    } else {
+      alert("Account created successfully");
+    }
+  };
+
   return (
     <section className="signup-section">
       <div className="signup-section-container animate__animated animate__backInDown">
@@ -12,28 +26,60 @@ function Signup() {
             </p>
           </div>
           <div className="signup-section-body">
-            <form action="" className="signup-section-form">
+            <form
+              onSubmit={handleSignup}
+              action=""
+              className="signup-section-form"
+            >
               <div className="signup-section-input">
                 <label htmlFor="name">full name</label>
-                <input type="text" name="name" id="name" pattern="[a-z]*" />
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="enter your full name"
+                  pattern="[a-zA-Z\s]*"
+                />
               </div>
               <div className="signup-section-input">
                 <label htmlFor="email">email address</label>
-                <input type="email" name="email" id="email" />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="enter your email"
+                />
               </div>
               <div className="signup-section-input">
                 <label htmlFor="phone">phone number</label>
-                <input type="text" name="phone" id="phone" />
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  placeholder="enter your phone number"
+                />
               </div>
               <div className="signup-section-input">
                 <label htmlFor="password">password</label>
-                <input type="password" name="password" id="password" />
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="enter your password"
+                />
               </div>
               <div className="signup-section-input">
-                <label htmlFor="password">confirm password</label>
-                <input type="password" name="cpassword" id="cPassword" />
+                <label htmlFor="confirm-password">confirm password</label>
+                <input
+                  type="password"
+                  name="confirm-password"
+                  id="confirm-password"
+                  placeholder="confirm your password"
+                />
               </div>
-              <button className="signup-section-btn">signup</button>
+              <button type="submit" className="signup-section-btn">
+                signup
+              </button>
             </form>
             <a href="/login" className="signup-section-link">
               Already have an account? Sign in
