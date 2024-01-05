@@ -1,17 +1,50 @@
+import React, { useState } from "react";
+import axios from "axios";
 import "animate.css";
+import Alert from "../components/Alert";
 
 function Signup() {
-  const handleSignup = (e) => {
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    password: "",
+    phone: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const [errorMsg, setErrorMsg] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleErrorMsg = (msg) => {
+    setErrorMsg(msg);
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+      setErrorMsg("");
+    }, 3000);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
+    const { password, confirmPassword, ...rest } = formData;
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
-    } else {
-      alert("Account created successfully");
+      handleErrorMsg("Passwords do not match");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/register",
+        formData
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error.response.data.message);
+      handleErrorMsg(error.response.data.message);
     }
   };
 
@@ -20,25 +53,29 @@ function Signup() {
       <div className="signup-section-container animate__animated animate__backInDown">
         <div className="signup-section-box">
           <div className="signup-section-heading">
-          <a href='/' className="signup-section-title"><img src="1704367523369xp3vn4hz-removebg-preview.png" alt="logo" className="logo animate__animated animate__bounceInUp" /></a>
+            <a href="/" className="signup-section-title">
+              <img
+                src="1704367523369xp3vn4hz-removebg-preview.png"
+                alt="logo"
+                className="logo animate__animated animate__bounceInUp"
+              />
+            </a>
             <p className="signup-section-text">
               Get started with a new account.
             </p>
           </div>
           <div className="signup-section-body">
-            <form
-              onSubmit={handleSignup}
-              action=""
-              className="signup-section-form"
-            >
+            <form onSubmit={handleSubmit} className="signup-section-form">
               <div className="signup-section-input">
                 <label htmlFor="name">full name</label>
                 <input
                   type="text"
-                  name="name"
-                  id="name"
+                  name="full_name"
+                  id="full-name"
                   placeholder="enter your full name"
                   pattern="[a-zA-Z\s]*"
+                  value={formData.full_name}
+                  onChange={handleChange}
                 />
               </div>
               <div className="signup-section-input">
@@ -48,6 +85,8 @@ function Signup() {
                   name="email"
                   id="email"
                   placeholder="enter your email"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
               <div className="signup-section-input">
@@ -57,6 +96,8 @@ function Signup() {
                   name="phone"
                   id="phone"
                   placeholder="enter your phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
                 />
               </div>
               <div className="signup-section-input">
@@ -66,15 +107,19 @@ function Signup() {
                   name="password"
                   id="password"
                   placeholder="enter your password"
+                  value={formData.password}
+                  onChange={handleChange}
                 />
               </div>
               <div className="signup-section-input">
                 <label htmlFor="confirm-password">confirm password</label>
                 <input
                   type="password"
-                  name="confirm-password"
+                  name="confirmPassword"
                   id="confirm-password"
                   placeholder="confirm your password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
                 />
               </div>
               <button type="submit" className="signup-section-btn">
@@ -125,6 +170,7 @@ function Signup() {
           </div>
         </div>
       </div>
+      <Alert msg={errorMsg} classes={showAlert ? "alert-danger" : "hidden"} />
     </section>
   );
 }

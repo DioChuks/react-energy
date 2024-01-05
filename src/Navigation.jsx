@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { AccountIcon } from "./template/AccountIcon";
 
 function Navigation() {
@@ -24,9 +25,9 @@ function Navigation() {
           </ul>
 
           <div className="account-link">
-            <a href="/login" className="fs-nav-account">
+            <Link to="/login" className="fs-nav-account">
                 <AccountIcon /> {" "}
-            </a>
+            </Link>
           </div>
         </nav>
       </div>

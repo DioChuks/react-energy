@@ -18,6 +18,8 @@
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
   padding: 10px;
+  max-width: 100%;
+  background-color: black;
 }
 
 @-webkit-keyframes slidein {
@@ -136,7 +138,7 @@
   top: 0;
   left: 0;
   width: 50%;
-  height: auto;
+  height: 100vh;
   padding: 10px;
   text-align: left;
   background-color: #333;
@@ -146,7 +148,7 @@
   align-items: flex-start;
   z-index: 999;
   animation: fadeIn 0.3s ease-in-out;
-  transition: display 300ms;
+  transition: display 300ms left 300ms;
 }
 
 .first-section .fs-nav-mobile .fs-nav-m-links.active {
@@ -163,7 +165,6 @@
     border-radius: 0px;
     border: none;
     transition: 0.3s ease;
-    transform: scale(0);
   }
   100% {
     opacity: 1;
@@ -173,7 +174,6 @@
     padding: 10px;
     border-radius: 5px;
     transition: 0.3s ease;
-    transform: scale(1);
   }
 }
 
@@ -791,7 +791,8 @@
     display: none;
   }
   .first-section .first-section-container .first-section-header{
-    margin-left: -20px;
+    /* margin-left: -20px; */
+    width: 95%;
     height: 60px;
   }
   .first-section .first-section-container .first-section-header .logo {
