@@ -1,7 +1,7 @@
 import "animate.css";
-import MobileNav from "./MobileNav";
-import Navigation from "./Navigation";
-import Button from "./Button";
+import MobileNav from "../components/MobileNav";
+import Navigation from "../components/Navigation";
+import Button from "../components/Button";
 
 function First() {
   return (

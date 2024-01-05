@@ -1,9 +1,9 @@
-import FirstSection from "./First";
-import SecondSection from "./Second";
-import ThirdSection from "./Third";
-import FourthSection from "./Fourth";
-import FifthSection from "./Fifth";
-import Footer from "./Footer";
+import FirstSection from "./Pages/First";
+import SecondSection from "./Pages/Second";
+import ThirdSection from "./Pages/Third";
+import FourthSection from "./Pages/Fourth";
+import FifthSection from "./Pages/Fifth";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {

@@ -1,6 +1,6 @@
 import "animate.css";
-import { SunIcon } from "./template/SunIcon";
-import Card from "./Card";
+import { SunIcon } from "../icons/SunIcon";
+import Card from "../components/Card";
 
 function Third() {
   return (

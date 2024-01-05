@@ -2,7 +2,7 @@
 function Dashboard() {
     return(
         <section className="dashboard-section">
-            
+            Dashboard
         </section>
     );
 }
