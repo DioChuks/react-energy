@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AccountIcon } from "./template/AccountIcon";
+import { AccountIcon } from "../icons/AccountIcon";
 
 function Navigation() {
   return (

@@ -1,10 +1,10 @@
-import MenuButton from "./MenuButton";
-import {HomeIcon} from "./template/HomeIcon";
-import {NatureIcon} from "./template/NatureIcon";
-import {StoreIcon} from "./template/StoreIcon";
-import {BoxIcon} from "./template/BoxIcon";
-import { UsersIcon } from "./template/UsersIcon";
-import { AccountIcon } from "./template/AccountIcon";
+import MenuButton from "../components/MenuButton";
+import {HomeIcon} from "../icons/HomeIcon";
+import {NatureIcon} from "../icons/NatureIcon";
+import {StoreIcon} from "../icons/StoreIcon";
+import {BoxIcon} from "../icons/BoxIcon";
+import { UsersIcon } from "../icons/UsersIcon";
+import { AccountIcon } from "../icons/AccountIcon";
 import React, { useState } from "react";
 
 function MobileNav() {
