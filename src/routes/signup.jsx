@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Navigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "animate.css";
 import { TwitterxIcon } from "../icons/TwitterxIcon";
 import { InstaIcon } from "../icons/InstaIcon";
@@ -9,6 +9,7 @@ import Alert from "../components/Alert";
 import logo from "../assets/logo.png";
 
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -35,23 +36,6 @@ function Signup() {
     }, 3000);
   };
 
-  const [redirect, setRedirect] = useState(false);
-
-  const redirectRoute = (data) => {
-    setRedirect(true);
-    return redirect ? (
-      <Navigate
-        to="/partner/user"
-        replace={true}
-        state={{
-          data,
-        }}
-      />
-    ) : (
-      ""
-    );
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setShowLoading(true);
@@ -70,7 +54,7 @@ function Signup() {
       console.log(response.data);
       setShowLoading(false);
       handleResponse(response.data.message);
-      redirectRoute(response.data);
+      navigate("/verify-email", { data: response.data.data.email });
     } catch (error) {
       console.error(error.response.data.message);
       handleResponse(error.response.data.message);
