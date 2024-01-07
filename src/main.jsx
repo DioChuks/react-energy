@@ -17,6 +17,7 @@ import Kyc from './Pages/Dashboard/Layouts/Kyc';
 import Invest from './Pages/Dashboard/Layouts/Invest';
 import Transactions from './Pages/Dashboard/Layouts/Transactions';
 import Profile from './Pages/Dashboard/Layouts/Profile/Profile';
+import EmailVerify from './routes/email-verify';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/sign-up",
-    element: <SignUp />,
+    element: <SignUp />
+  },
+  {
+    path: "/email-verify",
+    element: <EmailVerify />,
   },
   {
     path: "/partner/",

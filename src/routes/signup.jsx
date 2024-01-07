@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import "animate.css";
 import { TwitterxIcon } from "../icons/TwitterxIcon";
 import { InstaIcon } from "../icons/InstaIcon";
@@ -10,7 +10,8 @@ import logo from "../assets/logo.png";
 
 function Signup() {
   const [formData, setFormData] = useState({
-    full_name: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
     phone: "",
@@ -21,23 +22,43 @@ function Signup() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const [errorMsg, setErrorMsg] = useState("");
+  const [responseMsg, setResponseMsg] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
 
-  const handleErrorMsg = (msg) => {
-    setErrorMsg(msg);
+  const handleResponse = (msg) => {
+    setResponseMsg(msg);
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
-      setErrorMsg("");
+      setResponseMsg("");
     }, 3000);
+  };
+
+  const [redirect, setRedirect] = useState(false);
+
+  const redirectRoute = (data) => {
+    setRedirect(true);
+    return redirect ? (
+      <Navigate
+        to="/partner/user"
+        replace={true}
+        state={{
+          data,
+        }}
+      />
+    ) : (
+      ""
+    );
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setShowLoading(true);
     const { password, confirmPassword, ...rest } = formData;
     if (password !== confirmPassword) {
-      handleErrorMsg("Passwords do not match");
+      setShowLoading(false);
+      handleResponse("Passwords do not match");
       return;
     }
 
@@ -47,9 +68,12 @@ function Signup() {
         formData
       );
       console.log(response.data);
+      setShowLoading(false);
+      handleResponse(response.data.message);
+      redirectRoute(response.data);
     } catch (error) {
       console.error(error.response.data.message);
-      handleErrorMsg(error.response.data.message);
+      handleResponse(error.response.data.message);
     }
   };
 
@@ -71,17 +95,31 @@ function Signup() {
           </div>
           <div className="signup-section-body">
             <form onSubmit={handleSubmit} className="signup-section-form">
-              <div className="signup-section-input">
-                <label htmlFor="name">full name</label>
-                <input
-                  type="text"
-                  name="full_name"
-                  id="full-name"
-                  placeholder="enter your full name"
-                  pattern="[a-zA-Z\s]*"
-                  value={formData.full_name}
-                  onChange={handleChange}
-                />
+              <div className="signup-form-group">
+                <div className="input-group">
+                  <label htmlFor="first-name">first name</label>
+                  <input
+                    type="text"
+                    name="first_name"
+                    id="first-name"
+                    placeholder="enter your first name"
+                    pattern="[a-zA-Z\s]*"
+                    value={formData.first_name}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="input-group">
+                  <label htmlFor="last-name">last name</label>
+                  <input
+                    type="text"
+                    name="last_name"
+                    id="last-name"
+                    placeholder="enter your last name"
+                    pattern="[a-zA-Z\s]*"
+                    value={formData.last_name}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
               <div className="signup-section-input">
                 <label htmlFor="email">email address</label>
@@ -148,7 +186,8 @@ function Signup() {
           </div>
         </div>
       </div>
-      <Alert msg={errorMsg} classes={showAlert ? "alert-danger" : "hidden"} />
+      <Alert msg={responseMsg} classes={showAlert ? "alert-msg" : "hidden"} />
+      <Alert msg={""} classes={showLoading ? "alert-loading" : "hidden"} />
     </section>
   );
 }

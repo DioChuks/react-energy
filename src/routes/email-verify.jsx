@@ -8,10 +8,10 @@ import Alert from "../components/Alert";
 import logo from "../assets/logo.png";
 import "animate.css";
 
-function Login() {
+function EmailVerify() {
   const [formData, setFormData] = useState({
     email: "",
-    password: "",
+    code: "",
   });
 
   const handleChange = (e) => {
@@ -56,7 +56,7 @@ function Login() {
                 className="logo animate__animated animate__bounceInUp"
               />
             </a>
-            <p className="login-section-text">Sign in to your account.</p>
+            <p className="login-section-text">We need to confirm your account</p>
           </div>
           <div className="login-section-body">
             <form onSubmit={handleSubmit} className="login-section-form">
@@ -68,26 +68,27 @@ function Login() {
                   id="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
+                  disabled
                 />
               </div>
               <div className="login-section-input">
-                <label htmlFor="password">password</label>
+                <label htmlFor="otp">code</label>
                 <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={formData.password}
+                  type="text"
+                  name="code"
+                  id="otp"
+                  value={formData.code}
+                  placeholder="enter code here"
                   onChange={handleChange}
                   required
                 />
               </div>
               <button type="submit" className="login-section-btn">
-                Login
+                submit
               </button>
             </form>
             <Link to="/sign-up" className="login-section-link">
-              Don't have an account yet? Sign up
+              An email with a code has been sent to your address.
             </Link>
           </div>
           <div className="login-section-footer">
@@ -108,4 +109,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default EmailVerify;
