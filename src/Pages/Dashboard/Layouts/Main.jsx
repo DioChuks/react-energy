@@ -8,7 +8,7 @@ function Main() {
 
         <div className="dashboard-info">
           <div className="dashboard-user-info">
-            <h1>Welcome User</h1>
+            <h1 className="greetings">Welcome User</h1>
             <p>
               KYC Status: <span>We don't know you 😞</span>
             </p>
