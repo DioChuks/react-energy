@@ -1,12 +1,14 @@
+import 'animate.css';
+
 function Main() {
   return (
     <>
       <div className="user-section">
-        <div className="circular-border-box" data-percent="25">
+        <div className="circular-border-box animate__animated animate__fadeInLeft" data-percent="25">
           <p>--%</p>
         </div>
 
-        <div className="dashboard-info">
+        <div className="dashboard-info animate__animated animate__bounceInDown">
           <div className="dashboard-user-info">
             <h1 className="greetings">Welcome User</h1>
             <p>

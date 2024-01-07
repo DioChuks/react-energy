@@ -13,6 +13,10 @@ import Inventory from './Pages/Dashboard/Layouts/Inventory';
 import './index.css'
 import './login.css'
 import Main from './Pages/Dashboard/Layouts/Main';
+import Kyc from './Pages/Dashboard/Layouts/Kyc';
+import Invest from './Pages/Dashboard/Layouts/Invest';
+import Transactions from './Pages/Dashboard/Layouts/Transactions';
+import Profile from './Pages/Dashboard/Layouts/Profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +43,22 @@ const router = createBrowserRouter([
       {
         path: "inventory",
         element: <Inventory />,
+      },
+      {
+        path: "kyc",
+        element: <Kyc />,
+      },
+      {
+        path: "invest",
+        element: <Invest />,
+      },
+      {
+        path: "transactions",
+        element: <Transactions />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   }

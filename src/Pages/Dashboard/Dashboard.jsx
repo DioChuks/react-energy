@@ -18,16 +18,16 @@ function Dashboard() {
               <Link className="d-nav-item" to="/partner/inventory">
                 Inventory
               </Link>
-              <Link className="d-nav-item" href="/partner/kyc">
+              <Link className="d-nav-item" to="/partner/kyc">
                 KYC
               </Link>
-              <Link className="d-nav-item" href="/partner/invest">
+              <Link className="d-nav-item" to="/partner/invest">
                 Invest
               </Link>
-              <Link className="d-nav-item" href="/partner/transactions">
+              <Link className="d-nav-item" to="/partner/transactions">
                 Transactions
               </Link>
-              <Link className="d-nav-item" href="/partner/profile">
+              <Link className="d-nav-item" to="/partner/profile">
                 Profile
               </Link>
             </nav>
