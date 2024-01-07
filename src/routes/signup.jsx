@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "animate.css";
 import { TwitterxIcon } from "../icons/TwitterxIcon";
 import { InstaIcon } from "../icons/InstaIcon";
 import { FbIcon } from "../icons/FbIcon";
 import Alert from "../components/Alert";
+import logo from "../assets/logo.png";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -58,7 +60,7 @@ function Signup() {
           <div className="signup-section-heading">
             <a href="/" className="signup-section-title">
               <img
-                src="1704367523369xp3vn4hz-removebg-preview.png"
+                src={logo}
                 alt="logo"
                 className="logo animate__animated animate__bounceInUp"
               />
@@ -129,9 +131,9 @@ function Signup() {
                 signup
               </button>
             </form>
-            <a href="/login" className="signup-section-link">
+            <Link to="/login" className="signup-section-link">
               Already have an account? Sign in
-            </a>
+            </Link>
           </div>
           <div className="signup-section-footer">
             <a href="" className="social-media">

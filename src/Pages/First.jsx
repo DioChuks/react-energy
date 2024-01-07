@@ -2,13 +2,14 @@ import "animate.css";
 import MobileNav from "../components/MobileNav";
 import Navigation from "../components/Navigation";
 import Button from "../components/Button";
+import logo from "../assets/logo.png";
 
 function First() {
   return (
     <section className="first-section">
       <div className="first-section-container">
         <header className="first-section-header">
-          <img src="1704367523369xp3vn4hz-removebg-preview.png" alt="logo" className="logo animate__animated animate__bounceInUp" />
+          <img src={logo} alt="logo" className="logo animate__animated animate__bounceInUp" />
           {/* mobile view */}
           <div className="fs-nav-mobile" id="fsNavMobile">
             <MobileNav />

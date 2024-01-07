@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { TwitterxIcon } from "../icons/TwitterxIcon";
 import { InstaIcon } from "../icons/InstaIcon";
 import { FbIcon } from "../icons/FbIcon";
 import Alert from "../components/Alert";
+import logo from "../assets/logo.png";
 import "animate.css";
 
 function Login() {
@@ -50,7 +51,7 @@ function Login() {
           <div className="login-section-heading">
             <a href="/" className="login-section-title">
               <img
-                src="1704367523369xp3vn4hz-removebg-preview.png"
+                src={logo}
                 alt="logo"
                 className="logo animate__animated animate__bounceInUp"
               />
@@ -85,9 +86,9 @@ function Login() {
                 Login
               </button>
             </form>
-            <a href="/sign-up" className="login-section-link">
+            <Link to="/sign-up" className="login-section-link">
               Don't have an account yet? Sign up
-            </a>
+            </Link>
           </div>
           <div className="login-section-footer">
             <a href="" className="social-media">

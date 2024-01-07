@@ -4,17 +4,21 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ErrorPage from './ErrorPage';
 import App from './App';
 import Login from './routes/login';
 import SignUp from './routes/signup';
-import Dashboard from './Pages/Dashboard';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Inventory from './Pages/Dashboard/Layouts/Inventory';
 import './index.css'
 import './login.css'
+import Main from './Pages/Dashboard/Layouts/Main';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/login",
@@ -25,8 +29,18 @@ const router = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/partner/user",
+    path: "/partner/",
     element: <Dashboard />,
+    children: [
+      {
+        path: "user",
+        element: <Main />,
+      },
+      {
+        path: "inventory",
+        element: <Inventory />,
+      },
+    ],
   }
 ]);
 
