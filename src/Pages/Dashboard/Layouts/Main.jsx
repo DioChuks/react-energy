@@ -1,6 +1,9 @@
 import 'animate.css';
+import { useLocation } from "react-router-dom";
 
 function Main() {
+  const location = useLocation();
+  const data = location.state;
   return (
     <>
       <div className="user-section">
@@ -10,13 +13,13 @@ function Main() {
 
         <div className="dashboard-info animate__animated animate__bounceInDown">
           <div className="dashboard-user-info">
-            <h1 className="greetings">Welcome User</h1>
+            <h1 className="greetings">Welcome {data.user.first_name}</h1>
             <p>
-              KYC Status: <span>We don't know you 😞</span>
+              KYC Status: <span>{data.user.kyc ? "We can vouch for you! 🤝" : "We truly don't know you 🤷🏻‍♂️"}</span>
             </p>
             <p>Tier: Copper</p>
             <p>
-              Invested: <span>$100</span>
+              Invested: <span>${data.user.balance}</span>
             </p>
             <p>
               ROI: <span>10%</span>

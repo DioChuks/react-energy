@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { TwitterxIcon } from "../icons/TwitterxIcon";
 import { InstaIcon } from "../icons/InstaIcon";
 import { FbIcon } from "../icons/FbIcon";
@@ -9,6 +9,7 @@ import logo from "../assets/logo.png";
 import "animate.css";
 
 function Login() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,20 +19,24 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const [errorMsg, setErrorMsg] = useState("");
+  const [responseMsg, setResponseMsg] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
 
-  const handleErrorMsg = (msg) => {
-    setErrorMsg(msg);
+  const handleResponse = (msg) => {
+    setResponseMsg(msg);
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
-      setErrorMsg("");
+      setResponseMsg("");
     }, 3000);
   };
 
+  let data = "";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setShowLoading(true);
 
     try {
       const response = await axios.post(
@@ -39,9 +44,16 @@ function Login() {
         formData
       );
       console.log(response.data);
+      setShowLoading(false);
+      handleResponse(response.data.message);
+      data = response.data.data;
+      if (data.user.email_verified_at === null){
+        return navigate("/verify-email", { state: data});
+      }
+      navigate("/partner/user", { state: data });
     } catch (error) {
       console.error(error.response.data.message);
-      handleErrorMsg(error.response.data.message);
+      handleResponse(error.response.data.message);
     }
   };
   return (
@@ -103,7 +115,8 @@ function Login() {
           </div>
         </div>
       </div>
-      <Alert msg={errorMsg} classes={showAlert ? "alert-danger" : "hidden"} />
+      <Alert msg={responseMsg} classes={showAlert ? "alert-danger" : "hidden"} />
+      <Alert msg={""} classes={showLoading ? "alert-loading" : "hidden"} />
     </section>
   );
 }

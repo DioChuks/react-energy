@@ -1,11 +1,46 @@
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate, Link, Outlet } from "react-router-dom";
+import axios from "axios";
+
 import "./Dashboard.css";
 import logo from "../../assets/logo.png";
-import { AccountIcon } from "../../icons/AccountIcon";
+import { PowerIcon } from "../../icons/PowerIcon";
 import Footer from "../../components/Footer";
-import { Link, Outlet } from "react-router-dom";
 
 function Dashboard() {
-  return (
+  const location = useLocation();
+  const navigate = useNavigate();
+  const data = location.state || {}; // Handle potential undefined state
+
+  const [isLoggedIn, setIsLoggedIn] = useState(!!data.token); // Use token to determine initial state
+
+  useEffect(() => {
+    if (!data.token) {
+      navigate("/login");
+    }
+  }, [data.token, navigate]);
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(
+        "http://localhost:8000/api/logout",
+        {},
+        {
+          headers: { Authorization: `Bearer ${data.token}` },
+        }
+      );
+      localStorage.clear();
+      sessionStorage.clear();
+      setIsLoggedIn(false);
+    } catch (error) {
+      console.error(error.response.data.message);
+    } finally {
+      setTimeout(() => {
+        navigate("/login");
+      }, 2500);
+    }
+  };
+  return isLoggedIn ? (
     <>
       <section className="dashboard-section">
         <div className="dashboard-container">
@@ -31,8 +66,8 @@ function Dashboard() {
                 Profile
               </Link>
             </nav>
-            <div className="static-icon">
-              <AccountIcon />
+            <div className="static-icon" onClick={handleLogout}>
+              <PowerIcon />
             </div>
           </header>
           <Outlet />
@@ -40,6 +75,8 @@ function Dashboard() {
       </section>
       <Footer />
     </>
+  ) : (
+    <div className="isLoggedOut">Logged Out 🌩</div>
   );
 }
 

@@ -36,6 +36,8 @@ function Signup() {
     }, 3000);
   };
 
+  let data = "";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setShowLoading(true);
@@ -54,7 +56,8 @@ function Signup() {
       console.log(response.data);
       setShowLoading(false);
       handleResponse(response.data.message);
-      navigate("/verify-email", { data: response.data.data.email });
+      data = response.data.data;
+      navigate("/verify-email", { state: data });
     } catch (error) {
       console.error(error.response.data.message);
       handleResponse(error.response.data.message);

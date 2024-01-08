@@ -89,6 +89,10 @@
   border-radius: 8px;
 }
 
+.login-section-input .greyedOut {
+    color: #b3aeae;
+}
+
 .login-section-input input:focus-within {
   outline: 2px solid white;
   background: rgba(3, 10, 60, 0.3);
@@ -437,6 +441,10 @@
   .signup-section-body .signup-section-link {
     font-size: 12px;
   }
+
+  .alert {
+    left: 10px;
+  }
 }
 
 .alert {
@@ -474,7 +482,6 @@
   100% {
     opacity: 1;
     bottom: 10px;
-    left: 10px;
     transform: scale(1);
     transition: all 300ms;
   }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { TwitterxIcon } from "../icons/TwitterxIcon";
 import { InstaIcon } from "../icons/InstaIcon";
 import { FbIcon } from "../icons/FbIcon";
@@ -9,39 +9,46 @@ import logo from "../assets/logo.png";
 import "animate.css";
 
 function EmailVerify() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const data = location.state;
   const [formData, setFormData] = useState({
-    email: "",
-    code: "",
+    user_id: data.user.id,
+    otp: "",
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const [errorMsg, setErrorMsg] = useState("");
+  const [responseMsg, setResponseMsg] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  const handleErrorMsg = (msg) => {
-    setErrorMsg(msg);
+  const handleResponse = (msg) => {
+    setResponseMsg(msg);
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
-      setErrorMsg("");
+      setResponseMsg("");
     }, 3000);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const headers = { 'Authorization': `Bearer ${data.token}` };
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/login",
-        formData
+        "http://localhost:8000/api/email/otp/verify",
+        formData,
+        {headers}
       );
       console.log(response.data);
+      handleResponse(response.data.message);
+      navigate("/partner/user", { state: data });
     } catch (error) {
       console.error(error.response.data.message);
-      handleErrorMsg(error.response.data.message);
+      handleResponse(error.response.data.message);
     }
   };
   return (
@@ -56,7 +63,9 @@ function EmailVerify() {
                 className="logo animate__animated animate__bounceInUp"
               />
             </a>
-            <p className="login-section-text">We need to confirm your account</p>
+            <p className="login-section-text">
+              We need to confirm your account
+            </p>
           </div>
           <div className="login-section-body">
             <form onSubmit={handleSubmit} className="login-section-form">
@@ -66,7 +75,8 @@ function EmailVerify() {
                   type="email"
                   name="email"
                   id="email"
-                  value={formData.email}
+                  className="greyedOut"
+                  value={data.user.email}
                   onChange={handleChange}
                   disabled
                 />
@@ -75,9 +85,9 @@ function EmailVerify() {
                 <label htmlFor="otp">code</label>
                 <input
                   type="text"
-                  name="code"
+                  name="otp"
                   id="otp"
-                  value={formData.code}
+                  value={formData.otp}
                   placeholder="enter code here"
                   onChange={handleChange}
                   required
@@ -87,9 +97,9 @@ function EmailVerify() {
                 submit
               </button>
             </form>
-            <Link to="/sign-up" className="login-section-link">
+            <span className="login-section-link">
               An email with a code has been sent to your address.
-            </Link>
+            </span>
           </div>
           <div className="login-section-footer">
             <a href="" className="social-media">
@@ -104,7 +114,7 @@ function EmailVerify() {
           </div>
         </div>
       </div>
-      <Alert msg={errorMsg} classes={showAlert ? "alert-danger" : "hidden"} />
+      <Alert msg={responseMsg} classes={showAlert ? "alert-danger" : "hidden"} />
     </section>
   );
 }
