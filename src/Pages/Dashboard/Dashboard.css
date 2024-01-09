@@ -36,7 +36,12 @@
 }
 .dashboard-header .dashboard-nav .d-nav-item {
   text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 14px;
   transition: all 300ms;
+  cursor: pointer;
 }
 
 .dashboard-nav .d-nav-item:active {
@@ -79,168 +84,218 @@
 }
 
 .circular-border-box {
-    width: 200px;
-    height: 200px;
-    border: 10px solid #7fa5cd; /* Border color and width */
-    border-radius: 50%;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .circular-border-box::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f5f5f5; /* Background color */
-    border-radius: 50%;
-    clip-path: circle(0 at 50% 50%); /* Initially empty circle */
-    transition: clip-path 0.3s ease-in-out; /* Smooth animation */
-  }
-  
-  .circular-border-box[data-percent="100"]::before {
-    clip-path: circle(100%); /* Full circle for 100% */
-  }
-  
-  /* Adjust path for other percentages */
-  .circular-border-box[data-percent="50"]::before {
-    clip-path: circle(50% at 50% 50%);
-  }
-  
-  .circular-border-box[data-percent="25"]::before {
-    clip-path: circle(25% at 50% 50%);
-  }
-  
-  /* Optional styling for content inside the circle */
-  .circular-border-box p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #333; /* Match border color */
-    font-weight: bold;
-  }
+  width: 200px;
+  height: 200px;
+  border: 10px solid #7fa5cd; /* Border color and width */
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
 
-  .dashboard-container .investment-history {
-    display: flex;
-    justify-content: center;
-    height: 200px;
-  }
+.circular-border-box::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5; /* Background color */
+  border-radius: 50%;
+  clip-path: circle(0 at 50% 50%); /* Initially empty circle */
+  transition: clip-path 0.3s ease-in-out; /* Smooth animation */
+}
 
-  .investment-history .table {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
+.circular-border-box[data-percent="100"]::before {
+  clip-path: circle(100%); /* Full circle for 100% */
+}
+
+/* Adjust path for other percentages */
+.circular-border-box[data-percent="50"]::before {
+  clip-path: circle(50% at 50% 50%);
+}
+
+.circular-border-box[data-percent="25"]::before {
+  clip-path: circle(25% at 50% 50%);
+}
+
+/* Optional styling for content inside the circle */
+.circular-border-box p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333; /* Match border color */
+  font-weight: bold;
+}
+
+.dashboard-container .investment-history {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+}
+
+.investment-history .table {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  width: 50%;
+  height: 100px;
+  color: #333;
+  background-color: aliceblue;
+  box-shadow: 0px 2px 6px 5px aliceblue;
+  border-radius: 5px;
+  animation: slide-in 1s linear forwards;
+  transition: all 300ms;
+}
+
+.table::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  filter: drop-shadow(5px -1px 6px aliceblue);
+  animation: blink 1.5s infinite;
+  transition: all 300ms;
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0.7;
+    width: 90%;
+  }
+  100% {
+    opacity: 1;
     width: 50%;
-    height: 100px;
-    color: #333;
-    background-color: aliceblue;
-    box-shadow: 0px 2px 6px 5px aliceblue;
-    border-radius: 5px;
-    animation: slide-in 1s linear forwards;
-    transition:  all 300ms;
   }
+}
 
-  .table::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border-radius: 50%;
-    filter: drop-shadow(5px -1px 6px aliceblue);
-    animation: blink 1.5s infinite;
-    transition: all 300ms;
+@keyframes blink {
+  0% {
+    opacity: 0.1;
+    transform: scale(0.1);
   }
+  25% {
+    opacity: 0.25;
+    transform: scale(0.25);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  75% {
+    opacity: 0.75;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
-  @keyframes slide-in {
-    0% {
-      opacity: 0.7;
-      width: 90%;
-    }
-    100% {
-      opacity: 1;
-      width: 50%;
-    }
-  }
+.investment-history .table:hover {
+  box-shadow: none;
+}
 
-  @keyframes blink {
-    0% {opacity: 0.1;transform: scale(0.1);}
-    25% {opacity: 0.25;transform: scale(0.25);}
-    50% {opacity: 0.5;transform: scale(0.5);}
-    75% {opacity: 0.75;transform: scale(0.75);}
-    100% {opacity: 1;transform: scale(1);}
-  }
+.investment-history .table .table-list {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
 
-  .investment-history .table:hover {
-    box-shadow: none;
-  }
+.table-list li {
+  width: 100%;
+  font-weight: 500;
+}
 
-  .investment-history .table .table-list {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-  }
+/* inventory section */
+.dashboard-container .inventory-section {
+  height: auto;
+  padding: 10px;
+}
 
-  .table-list li {
-    width: 100%;
-    font-weight: 500;
-  }
+.inventory-section .inventory-box .inventory-heading .inventory-title {
+  font-size: 5rem;
+}
 
-  /* inventory section */
-  .dashboard-container .inventory-section {
-    height: auto;
-    padding: 10px;
-  }
+.inventory-heading .inventory-text {
+  font-size: 3rem;
+}
 
-  .inventory-section .inventory-box .inventory-heading .inventory-title {
-    font-size: 5rem;
-  }
+.inventory-box .inventory-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 
-  .inventory-heading .inventory-text {
-    font-size: 3rem;
-  }
+.footer-section {
+  background-color: black;
+}
 
-  .inventory-box .inventory-cards {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  }
+.footer-section
+  .footer-section-container
+  .footer-section-box
+  .footer-section-heading {
+  color: white;
+}
 
-  
-  .footer-section {
-    background-color: black;
-  }
+.footer-section
+  .footer-section-container
+  .footer-section-box
+  .footer-section-heading
+  .footer-section-subtitle {
+  color: white;
+}
 
-  .footer-section .footer-section-container .footer-section-box .footer-section-heading {
-    color: white;
-  }
+.footer-section
+  .footer-section-container
+  .footer-section-box
+  .footer-section-body {
+  color: white;
+}
 
-  .footer-section .footer-section-container .footer-section-box .footer-section-heading .footer-section-subtitle{
-    color: white;
-  }
+.footer-section-body .footer-section-form span {
+  color: teal;
+  font-weight: 500;
+  transition: all 300ms;
+}
 
-  .footer-section .footer-section-container .footer-section-box .footer-section-body {
-    color: white;
-  }
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 300ms, transform 300ms;
+}
 
-  .footer-section .footer-section-container .footer-section-box .footer-section-body span a{
-    color: white;
-  }
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .isLoggedOut {
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-    color: aliceblue;
-    background-color: black;
-    font-size: 4rem;
-  }
+.footer-section-body .footer-section-form .news-input .input {
+  color: aliceblue;
+}
+
+.footer-section
+  .footer-section-container
+  .footer-section-box
+  .footer-section-body
+  span
+  a {
+  color: white;
+}
+
+.isLoggedOut {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  color: aliceblue;
+  background-color: black;
+  font-size: 4rem;
+}

@@ -7,6 +7,7 @@ import { FbIcon } from "../icons/FbIcon";
 import Alert from "../components/Alert";
 import logo from "../assets/logo.png";
 import "animate.css";
+import { apiUrl } from "./api";
 
 function EmailVerify() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function EmailVerify() {
 
   const [responseMsg, setResponseMsg] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
 
   const handleResponse = (msg) => {
     setResponseMsg(msg);
@@ -35,15 +37,17 @@ function EmailVerify() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setShowLoading(true);
     const headers = { 'Authorization': `Bearer ${data.token}` };
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/email/otp/verify",
+        `${apiUrl}/email/otp/verify`,
         formData,
         {headers}
       );
       console.log(response.data);
+      setShowLoading(false);
       handleResponse(response.data.message);
       navigate("/partner/user", { state: data });
     } catch (error) {
@@ -115,6 +119,7 @@ function EmailVerify() {
         </div>
       </div>
       <Alert msg={responseMsg} classes={showAlert ? "alert-danger" : "hidden"} />
+      <Alert msg={""} classes={showLoading ? "alert-loading" : "hidden"} />
     </section>
   );
 }

@@ -7,6 +7,7 @@ import { FbIcon } from "../icons/FbIcon";
 import Alert from "../components/Alert";
 import logo from "../assets/logo.png";
 import "animate.css";
+import {apiUrl} from './api';
 
 function Login() {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/login",
+        `${apiUrl}/login`,
         formData
       );
       console.log(response.data);

@@ -1,45 +1,60 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, Link, Outlet } from "react-router-dom";
 import axios from "axios";
-
+import { apiUrl } from "../../routes/api";
 import "./Dashboard.css";
 import logo from "../../assets/logo.png";
 import { PowerIcon } from "../../icons/PowerIcon";
 import Footer from "../../components/Footer";
+import NavList from "./NavList";
 
 function Dashboard() {
   const location = useLocation();
   const navigate = useNavigate();
-  const data = location.state || {}; // Handle potential undefined state
-
-  const [isLoggedIn, setIsLoggedIn] = useState(!!data.token); // Use token to determine initial state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    if (!data.token) {
-      navigate("/login");
-    }
-  }, [data.token, navigate]);
+    const checkAuthentication = async () => {
+      try {
+        const response = await axios.post(`${apiUrl}/check-auth`, {
+          token: location.state?.token,
+        },
+        {
+          headers: { Authorization: `Bearer ${location.state?.token}` },
+        });
+        setIsLoggedIn(response.data.isAuthenticated);
+      } catch (error) {
+        console.error(error.response?.data?.message || error.message);
+        setIsLoggedIn(false);
+        navigate("/login");
+      }
+    };
+
+    checkAuthentication();
+  }, [location.state?.token, navigate]);
+
+  const handleNavigate = (routeName) => {
+    navigate(routeName, { state: location.state });
+  };
 
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:8000/api/logout",
+        `${apiUrl}/logout`,
         {},
         {
-          headers: { Authorization: `Bearer ${data.token}` },
+          headers: { Authorization: `Bearer ${location.state?.token}` },
         }
       );
       localStorage.clear();
       sessionStorage.clear();
       setIsLoggedIn(false);
+      navigate("/login");
     } catch (error) {
-      console.error(error.response.data.message);
-    } finally {
-      setTimeout(() => {
-        navigate("/login");
-      }, 2500);
+      console.error(error.response?.data?.message || error.message);
     }
   };
+
   return isLoggedIn ? (
     <>
       <section className="dashboard-section">
@@ -47,24 +62,15 @@ function Dashboard() {
           <header className="dashboard-header">
             <img src={logo} alt="logo" className="logo" />
             <nav className="dashboard-nav">
-              <Link className="d-nav-item" to="/partner/user">
-                Dashboard
-              </Link>
-              <Link className="d-nav-item" to="/partner/inventory">
-                Inventory
-              </Link>
-              <Link className="d-nav-item" to="/partner/kyc">
-                KYC
-              </Link>
-              <Link className="d-nav-item" to="/partner/invest">
-                Invest
-              </Link>
-              <Link className="d-nav-item" to="/partner/transactions">
-                Transactions
-              </Link>
-              <Link className="d-nav-item" to="/partner/profile">
-                Profile
-              </Link>
+              {Object.entries(NavList).map(([key, value]) => (
+                <button
+                  key={key}
+                  className="d-nav-item"
+                  onClick={() => handleNavigate(value)}
+                >
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                </button>
+              ))}
             </nav>
             <div className="static-icon" onClick={handleLogout}>
               <PowerIcon />
@@ -76,7 +82,7 @@ function Dashboard() {
       <Footer />
     </>
   ) : (
-    <div className="isLoggedOut">Logged Out 🌩</div>
+    <div className="isLoggedOut">Loading 🌩</div>
   );
 }
 

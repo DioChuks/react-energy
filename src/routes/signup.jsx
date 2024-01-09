@@ -7,6 +7,7 @@ import { InstaIcon } from "../icons/InstaIcon";
 import { FbIcon } from "../icons/FbIcon";
 import Alert from "../components/Alert";
 import logo from "../assets/logo.png";
+import { apiUrl } from "./api";
 
 function Signup() {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/register",
+        `${apiUrl}/register`,
         formData
       );
       console.log(response.data);
