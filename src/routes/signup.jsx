@@ -61,6 +61,7 @@ function Signup() {
       navigate("/verify-email", { state: data });
     } catch (error) {
       console.error(error.response.data.message);
+      setShowLoading(false);
       handleResponse(error.response.data.message);
     }
   };

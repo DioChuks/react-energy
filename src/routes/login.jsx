@@ -54,6 +54,7 @@ function Login() {
       navigate("/partner/user", { state: data });
     } catch (error) {
       console.error(error.response.data.message);
+      setShowLoading(false);
       handleResponse(error.response.data.message);
     }
   };
