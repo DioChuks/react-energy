@@ -5,37 +5,29 @@ import { apiUrl } from "../../../../routes/api";
 
 function Profile() {
   const location = useLocation();
-  const data = location.state;
+  const { user, token } = location.state; // Destructure for clarity
+
+  const [profile, setProfile] = useState(user);
   const [editMode, setEditMode] = useState(false);
-
-  const user = {
-    id: data.user.id,
-    first_name: data.user.first_name,
-    last_name: data.user.last_name,
-    email: data.user.email,
-    phone: data.user.phone,
-    address: data.user.address,
-    zip: data.user.zip,
-    country: data.user.country,
-  };
-
-  const [userData, setUserData] = useState(user);
+  const [updateError, setUpdateError] = useState(null); // Track errors
 
   useEffect(() => {
-    setUserData(userData);
-  }, [userData]);
+    if (!user || !token) {
+      // Handle the error or redirect to a relevant page
+      console.error("Missing user or token in location state");
+    }
+  }, [location.state]);
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
-    const headers = { Authorization: `Bearer ${data.token}` };
+    const headers = { Authorization: `Bearer ${token}` };
     try {
-      // Implement the logic to update the user profile
-      // You can use API calls here or any other method based on your backend setup
-      const response = await axios.put(`${apiUrl}/user/${user.id}`, userData, {
+      const response = await axios.put(`${apiUrl}/user/${user.id}`, profile, {
         headers,
       });
 
       console.log(response.data);
+      setUpdateError(null); // Clear any previous errors
       setEditMode(false);
     } catch (error) {
       console.error("Error updating profile:", error.response.data.message);
@@ -43,7 +35,7 @@ function Profile() {
   };
 
   const handleInputChange = (e) => {
-    setUserData({ ...user, [e.target.name]: e.target.value });
+    setProfile((prevProfile) => ({ ...prevProfile, [e.target.name]: e.target.value }));
   };
 
   return (
@@ -54,7 +46,7 @@ function Profile() {
           <p className="profile-subtitle">your personal info can be updated</p>
         </div>
         <div className="profile-form-box">
-          {userData && (
+          {profile && (
             <form onSubmit={handleUpdateProfile} className="profile-form">
               <div className="profile-input-group">
                 <div className="profile-input">
@@ -63,7 +55,7 @@ function Profile() {
                     type="text"
                     id="first-name"
                     name="first_name"
-                    value={user?.first_name}
+                    value={profile.first_name}
                     onChange={handleInputChange}
                     readOnly={!editMode}
                   />
@@ -74,7 +66,7 @@ function Profile() {
                     type="text"
                     id="last-name"
                     name="last_name"
-                    value={user?.last_name}
+                    value={profile.last_name}
                     onChange={handleInputChange}
                     readOnly={!editMode}
                   />
@@ -87,7 +79,7 @@ function Profile() {
                     type="email"
                     id="email"
                     name="email"
-                    value={user?.email}
+                    value={profile.email}
                     onChange={handleInputChange}
                     readOnly={!editMode}
                   />
@@ -98,7 +90,7 @@ function Profile() {
                     type="text"
                     id="phone"
                     name="phone"
-                    value={user?.phone}
+                    value={profile.phone}
                     onChange={handleInputChange}
                     readOnly={!editMode}
                   />
@@ -109,7 +101,7 @@ function Profile() {
                 <textarea
                   id="address"
                   name="address"
-                  value={user?.address}
+                  value={profile.address}
                   onChange={handleInputChange}
                   readOnly={!editMode}
                 />
@@ -121,7 +113,7 @@ function Profile() {
                     type="text"
                     id="zip"
                     name="zip"
-                    value={user?.zip}
+                    value={profile.zip}
                     onChange={handleInputChange}
                     readOnly={!editMode}
                   />
@@ -132,7 +124,7 @@ function Profile() {
                     type="text"
                     id="country"
                     name="country"
-                    value={user?.country}
+                    value={profile.country}
                     onChange={handleInputChange}
                     readOnly={!editMode}
                   />
@@ -144,6 +136,9 @@ function Profile() {
                 <button type="button" onClick={() => setEditMode(true)}>
                   Edit Profile
                 </button>
+              )}
+              {updateError && (
+                <div className="error-message">{updateError}</div>
               )}
             </form>
           )}
