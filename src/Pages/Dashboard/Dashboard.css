@@ -346,6 +346,106 @@ input[type=file]::file-selector-button:hover {
   background: darkcyan;
 }
 
+/* investment styles */
+
+.invest {
+  height: 600px;
+}
+
+.invest .invest-box {
+  height: inherit;
+
+}
+
+.invest .invest-box .invest-heading {
+  width: 70%;
+  padding: 10px;
+}
+
+.invest .invest-box .invest-heading .invest-title {
+  font-size: 4rem;
+}
+
+.invest-heading .invest-subtitle {
+  font-size: 2rem;
+}
+
+.invest-box .invest-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invest-box .invest-form-box {
+  width: 300px;
+  height: auto;
+  color: #000;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px 5px aliceblue;
+}
+
+.invest-form-box .invest-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.invest-form .invest-input-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.invest-form .invest-input {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  gap: 5px;
+  width: 100%;
+}
+
+.invest-input input[type=file] {
+  width: 50%;
+  max-width: 100%;
+  color: #444;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  /* border: 1px solid #555; */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.invest-form input[type=number] {
+  width: 70%;
+  max-width: 100%;
+  color: #444;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.invest-form button {
+  width: 50%;
+  height: 30px;
+  border: none;
+  outline: none;
+  color: aliceblue;
+  border-radius: 20px;
+  background: teal;
+  cursor: pointer;
+  transition: background .3s ease-in-out;
+}
+
+.invest-form button:hover {
+  background: darkcyan;
+}
+
 .footer-section {
   background-color: black;
 }
