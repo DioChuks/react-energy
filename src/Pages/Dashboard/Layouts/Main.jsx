@@ -1,29 +1,41 @@
-import 'animate.css';
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import "animate.css";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function Main() {
   const location = useLocation();
   const [hasData, setHasData] = useState(!!location.state);
+  const [percent, setPercent] = useState(50);
 
   useEffect(() => {
     setHasData(!!location.state);
   }, [location.state]);
+
+  const circleStyles = {
+    backgroundImage: `conic-gradient(#cecece ${percent}%, aliceblue 0)`,
+  }
 
   const renderMainContent = () => {
     const { user } = location.state || {};
     return (
       <>
         <div className="user-section">
-          <div className="circular-border-box animate__animated animate__fadeInLeft" data-percent="25">
-            <p>--%</p>
+          <div className="wrap-circles">
+            <div className="circle" style={circleStyles}>
+              <div className="inner">{percent}%</div>
+            </div>
           </div>
 
           <div className="dashboard-info animate__animated animate__bounceInDown">
             <div className="dashboard-user-info">
               <h1 className="greetings">Welcome {user?.first_name}</h1>
               <p>
-                KYC Status: <span>{user?.kyc ? "We can vouch for you! 🤝" : "We truly don't know you 🤷🏻‍♂️"}</span>
+                KYC Status:{" "}
+                <span>
+                  {user?.kyc
+                    ? "We can vouch for you! 🤝"
+                    : "We truly don't know you 🤷🏻‍♂️"}
+                </span>
               </p>
               <p>Tier: Copper</p>
               <p>
@@ -58,7 +70,7 @@ function Main() {
   return hasData ? (
     renderMainContent()
   ) : (
-    <img src='#' onLoad={() => setHasData(false)} alt='Loading...'/>
+    <img src="#" onLoad={() => setHasData(false)} alt="Loading..." />
   );
 }
 
