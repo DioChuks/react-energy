@@ -539,6 +539,21 @@ input[type=file]::file-selector-button:hover {
   background: darkcyan;
 }
 
+.profile-form .close-edit {
+  color: #fff;
+  background: #000;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.close-edit:hover {
+  background: #333;
+  transform: scale(1.3);
+}
+
 .error-message {
   color: teal;
 }

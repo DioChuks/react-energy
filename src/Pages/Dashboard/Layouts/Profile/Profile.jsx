@@ -35,7 +35,10 @@ function Profile() {
   };
 
   const handleInputChange = (e) => {
-    setProfile((prevProfile) => ({ ...prevProfile, [e.target.name]: e.target.value }));
+    setProfile((prevProfile) => ({
+      ...prevProfile,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
@@ -131,7 +134,16 @@ function Profile() {
                 </div>
               </div>
               {editMode ? (
-                <button type="submit">Save Changes</button>
+                <>
+                  <button type="submit">Save Changes</button>
+
+                  <span
+                    className="close-edit"
+                    onClick={() => setEditMode(false)}
+                  >
+                    X
+                  </span>
+                </>
               ) : (
                 <button type="button" onClick={() => setEditMode(true)}>
                   Edit Profile
